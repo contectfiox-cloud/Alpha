@@ -168,8 +168,72 @@
             text-shadow: 2px 2px #C1121F, -2px -2px #00ffff;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         iframe {
             filter: grayscale(1) invert(1) contrast(1.2);
+        }
+
+        /* ===== FIX: Extra-Small Mobile Screens (364px and under ~420px) ===== */
+        @media (max-width: 420px) {
+            /* Nav: tighter padding, smaller logo */
+            nav {
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+                padding-top: 0.5rem !important;
+                padding-bottom: 0.5rem !important;
+            }
+            nav img {
+                height: 2.25rem !important;  /* 36px instead of 48px */
+            }
+            /* Shrink phone number text */
+            nav a[href^="tel:"] {
+                font-size: 0.75rem !important;
+            }
+
+            /* Hero heading: scale way down for tiny screens */
+            .glitch-text {
+                font-size: 3rem !important;    /* ~48px instead of 72px */
+                line-height: 1.1 !important;
+                letter-spacing: 0px !important;
+            }
+
+            /* Hero subtitle */
+            #home p {
+                font-size: 0.875rem !important;
+            }
+
+            /* Hero CTA buttons: smaller text & padding */
+            #home a[href] {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+                padding-top: 0.75rem !important;
+                padding-bottom: 0.75rem !important;
+                font-size: 0.875rem !important;
+                letter-spacing: 0.1em !important;
+            }
+
+            /* Section headings */
+            h2 {
+                font-size: 1.75rem !important;
+            }
+
+            /* Pricing card price numbers */
+            .premium-card .text-5xl,
+            section .text-5xl {
+                font-size: 2.5rem !important;
+            }
+        }
+
+        /* Even tinier screens (360px and below) */
+        @media (max-width: 370px) {
+            .glitch-text {
+                font-size: 2.5rem !important;
+            }
         }
     </style>
 </head>
@@ -250,28 +314,30 @@
             <h2 class="font-oswald text-4xl md:text-6xl font-bold uppercase mb-4">THE <span class="text-blood">ARSENAL</span></h2>
             <div class="w-24 h-1 bg-blood mx-auto"></div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-            <div class="premium-card p-8 group transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
-                <div class="text-blood mb-6 text-4xl transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(193,18,31,0.5)]">🥊</div>
-                <h3 class="font-oswald text-2xl font-bold uppercase mb-4 text-white/90">MMA & Boxing</h3>
-                <p class="text-gray-400 font-light leading-relaxed">Tactical combat training by pro-fighters. Mon, Wed, Fri (6-7 AM / 7-8 PM).</p>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="bg-gray900 border border-gray800 p-8 transition-all duration-300 hover:border-blood group" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-blood mb-6 text-4xl">🥊</div>
+                <h3 class="font-oswald text-2xl font-bold uppercase mb-4">MMA Classes</h3>
+                <p class="text-gray-400">Monday, Wednesday, Friday <br> ⏰ 6:00 – 7:00 AM <br> ⏰ 7:00 – 8:00 PM</p>
             </div>
-            <div class="premium-card p-8 group transition-all duration-500" data-aos="fade-up" data-aos-delay="200">
-                <div class="text-blood mb-6 text-4xl transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(193,18,31,0.5)]">💃</div>
-                <h3 class="font-oswald text-2xl font-bold uppercase mb-4 text-white/90">Zumba Elite</h3>
-                <p class="text-gray-400 font-light leading-relaxed">High-octane dance cardio. Tue, Thu, Sat (7-8 PM).</p>
+            <div class="bg-gray900 border border-gray800 p-8 transition-all duration-300 hover:border-blood group" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-blood mb-6 text-4xl">💃</div>
+                <h3 class="font-oswald text-2xl font-bold uppercase mb-4">Zumba Classes</h3>
+                <p class="text-gray-400">Tuesday, Thursday, Saturday <br> ⏰ 7:00 – 8:00 PM</p>
             </div>
-            <div class="premium-card p-8 group transition-all duration-500" data-aos="fade-up" data-aos-delay="300">
-                <div class="text-blood mb-6 text-4xl transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(193,18,31,0.5)]">🔥</div>
-                <h3 class="font-oswald text-2xl font-bold uppercase mb-4 text-white/90">HIIT Burn</h3>
-                <p class="text-gray-400 font-light leading-relaxed">Metabolic shattering sessions. Tue, Thu, Sat (8-9 AM).</p>
+            <div class="bg-gray900 border border-gray800 p-8 transition-all duration-300 hover:border-blood group" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-blood mb-6 text-4xl">🔥</div>
+                <h3 class="font-oswald text-2xl font-bold uppercase mb-4">HIIT Burn</h3>
+                <p class="text-gray-400">Tuesday, Thursday, Saturday <br> ⏰ 8:00 – 9:00 AM</p>
             </div>
-            <div class="premium-card p-8 group transition-all duration-500" data-aos="fade-up" data-aos-delay="400">
-                <div class="text-blood mb-6 text-4xl transform group-hover:scale-110 transition-transform duration-300 drop-shadow-[0_0_15px_rgba(193,18,31,0.5)]">👩</div>
-                <h3 class="font-oswald text-2xl font-bold uppercase mb-4 text-white/90">Power Burn</h3>
-                <p class="text-gray-400 font-light leading-relaxed">Women's exclusive strength sessions. Mon, Wed, Fri (4-5 PM).</p>
+            <div class="bg-gray900 border border-gray800 p-8 transition-all duration-300 hover:border-blood group" data-aos="fade-up" data-aos-delay="400">
+                <div class="text-blood mb-6 text-4xl">👩</div>
+                <h3 class="font-oswald text-2xl font-bold uppercase mb-4">Women’s Power Burn</h3>
+                <p class="text-gray-400">Monday, Wednesday, Friday <br> ⏰ 4:00 – 5:00 PM</p>
             </div>
+        </div>
+        <div class="text-center mt-12 text-gray-400 font-bold uppercase tracking-widest text-sm" data-aos="fade-up">
+            Certified Trainers • Proper Guidance • Safe Training
         </div>
     </section>
 
@@ -290,34 +356,33 @@
             
             <div class="marquee-wrapper animate-scroll hover:[animation-play-state:paused] flex gap-6">
                 <!-- Set 1 -->
-                <img src="Assets/gym_interior_1.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 1" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_2.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 2" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_3.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 3" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_4.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 4" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_5.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 5" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_6.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 6" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_7.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 7" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_8.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 8" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_9.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 9" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_10.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 10" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_11.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 11" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_12.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 12" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_13.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 13" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_1.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 1" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_2.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 2" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_3.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 3" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_4.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 4" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_5.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 5" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_6.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 6" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_7.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 7" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_8.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 8" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_9.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 9" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_10.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 10" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_11.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 11" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_12.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 12" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_13.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 13" onclick="openModal(this.src)">
                 <!-- Duplication for seamless loop -->
-                <!-- Extra images appended to have more to scroll -->
-                <img src="Assets/gym_interior_1.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 1" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_2.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 2" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_3.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 3" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_4.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 4" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_5.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 5" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_6.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 6" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_7.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 7" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_8.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 8" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_9.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 9" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_10.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 10" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_11.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 11" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_12.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 12" onclick="openModal(this.src)">
-                <img src="Assets/gym_interior_13.jpg" class="w-80 h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 13" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_1.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 1" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_2.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 2" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_3.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 3" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_4.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 4" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_5.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 5" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_6.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 6" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_7.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 7" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_8.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 8" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_9.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 9" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_10.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 10" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_11.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 11" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_12.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 12" onclick="openModal(this.src)">
+                <img src="Assets/gym_interior_13.jpg" class="w-72 sm:w-80 h-[24rem] sm:h-[28rem] object-cover cursor-pointer hover:scale-105 transition-all duration-500 rounded-sm shadow-2xl grayscale hover:grayscale-0 brightness-75 hover:brightness-110" alt="Gallery 13" onclick="openModal(this.src)">
             </div>
         </div>
     </section>
@@ -338,61 +403,61 @@
             
             <div class="marquee-wrapper animate-scroll-reverse hover:[animation-play-state:paused] flex gap-8 py-10 px-4">
                 <!-- Testimonials -->
-                <div class="w-[420px] premium-card p-10 shrink-0">
+                <div class="w-[310px] sm:w-[420px] premium-card p-6 sm:p-10 shrink-0">
                     <div class="flex items-center justify-between mb-6">
-                        <div class="text-blood font-bold text-2xl tracking-[0.2em]">★★★★★</div>
+                        <div class="text-blood font-bold text-xl sm:text-2xl tracking-[0.2em]">★★★★★</div>
                         <div class="text-white/20">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                         </div>
                     </div>
-                    <p class="text-gray-300 font-light leading-relaxed italic text-base mb-6">"Alpha Fitness transformed my mindset. The atmosphere is like no other gym in Delhi."</p>
-                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-sm">- Rahul Sharma</h4>
+                    <p class="text-gray-300 font-light leading-relaxed italic text-sm sm:text-base mb-6">"Alpha Fitness transformed my mindset. The atmosphere is like no other gym in Delhi."</p>
+                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-xs sm:text-sm">- Rahul Sharma</h4>
                 </div>
-                <div class="w-[420px] premium-card p-10 shrink-0">
+                <div class="w-[310px] sm:w-[420px] premium-card p-6 sm:p-10 shrink-0">
                     <div class="flex items-center justify-between mb-6">
-                        <div class="text-blood font-bold text-2xl tracking-[0.2em]">★★★★★</div>
+                        <div class="text-blood font-bold text-xl sm:text-2xl tracking-[0.2em]">★★★★★</div>
                         <div class="text-white/20">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                         </div>
                     </div>
-                    <p class="text-gray-300 font-light leading-relaxed italic text-base mb-6">"Muay Thai classes are world-class. No fluff, just pure discipline."</p>
-                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-sm">- Anjali K.</h4>
+                    <p class="text-gray-300 font-light leading-relaxed italic text-sm sm:text-base mb-6">"Muay Thai classes are world-class. No fluff, just pure discipline."</p>
+                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-xs sm:text-sm">- Anjali K.</h4>
                 </div>
-                <div class="w-[420px] premium-card p-10 shrink-0">
+                <div class="w-[310px] sm:w-[420px] premium-card p-6 sm:p-10 shrink-0">
                     <div class="flex items-center justify-between mb-6">
-                        <div class="text-blood font-bold text-2xl tracking-[0.2em]">★★★★★</div>
+                        <div class="text-blood font-bold text-xl sm:text-2xl tracking-[0.2em]">★★★★★</div>
                         <div class="text-white/20">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                         </div>
                     </div>
-                    <p class="text-gray-300 font-light leading-relaxed italic text-base mb-6">"The best facility for gymnastics and mobility training. 10/10."</p>
-                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-sm">- Vikram Singh</h4>
+                    <p class="text-gray-300 font-light leading-relaxed italic text-sm sm:text-base mb-6">"The best facility for gymnastics and mobility training. 10/10."</p>
+                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-xs sm:text-sm">- Vikram Singh</h4>
                 </div>
                 <!-- Duplicate for seamless loop -->
-                <div class="w-[420px] premium-card p-10 shrink-0">
+                <div class="w-[310px] sm:w-[420px] premium-card p-6 sm:p-10 shrink-0">
                     <div class="flex items-center justify-between mb-6">
-                        <div class="text-blood font-bold text-2xl tracking-[0.2em]">★★★★★</div>
+                        <div class="text-blood font-bold text-xl sm:text-2xl tracking-[0.2em]">★★★★★</div>
                         <div class="text-white/20">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                         </div>
                     </div>
-                    <p class="text-gray-300 font-light leading-relaxed italic text-base mb-6">"Alpha Fitness transformed my mindset. The atmosphere is like no other gym in Delhi."</p>
-                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-sm">- Rahul Sharma</h4>
+                    <p class="text-gray-300 font-light leading-relaxed italic text-sm sm:text-base mb-6">"Alpha Fitness transformed my mindset. The atmosphere is like no other gym in Delhi."</p>
+                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-xs sm:text-sm">- Rahul Sharma</h4>
                 </div>
-                <div class="w-[420px] premium-card p-10 shrink-0">
+                <div class="w-[310px] sm:w-[420px] premium-card p-6 sm:p-10 shrink-0">
                     <div class="flex items-center justify-between mb-6">
-                        <div class="text-blood font-bold text-2xl tracking-[0.2em]">★★★★★</div>
+                        <div class="text-blood font-bold text-xl sm:text-2xl tracking-[0.2em]">★★★★★</div>
                         <div class="text-white/20">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                         </div>
                     </div>
-                    <p class="text-gray-300 font-light leading-relaxed italic text-base mb-6">"Muay Thai classes are world-class. No fluff, just pure discipline."</p>
-                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-sm">- Anjali K.</h4>
+                    <p class="text-gray-300 font-light leading-relaxed italic text-sm sm:text-base mb-6">"Muay Thai classes are world-class. No fluff, just pure discipline."</p>
+                    <h4 class="font-bold text-white uppercase tracking-[0.15em] text-xs sm:text-sm">- Anjali K.</h4>
                 </div>
-                <div class="w-[400px] bg-gray900 p-8 border border-gray800 shrink-0">
-                    <div class="text-blood mb-2 font-bold text-xl">★★★★★</div>
-                    <p class="text-gray-400 italic text-sm mb-4">"The best facility for gymnastics and mobility training. 10/10."</p>
-                    <h4 class="font-bold text-white uppercase tracking-widest">- Vikram Singh</h4>
+                <div class="w-[310px] sm:w-[400px] bg-gray900 p-6 sm:p-8 border border-gray800 shrink-0">
+                    <div class="text-blood mb-2 font-bold text-lg sm:text-xl">★★★★★</div>
+                    <p class="text-gray-400 italic text-xs sm:text-sm mb-4">"The best facility for gymnastics and mobility training. 10/10."</p>
+                    <h4 class="font-bold text-white uppercase tracking-widest text-[10px] sm:text-xs">- Vikram Singh</h4>
                 </div>
             </div>
         </div>
